@@ -1,0 +1,19 @@
+from django.db import models
+
+# Create your models here.
+class post(models.Model):
+	title = models.CharField(max_length=80)
+	body = models.TextField()
+	tag = models.CharField(max_length=15)
+	pub_date = models.DateTimeField('date published')
+	rate = models.IntegerField()
+	def __str__(self):
+		return self.title
+
+	
+class comment(models.Model):
+	post = models.ForeignKey('post',on_delete=models.PROTECT)
+	body = models.TextField()
+	pub_date = models.DateTimeField('date published')
+	def __str__(self):
+		return self.body
