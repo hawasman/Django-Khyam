@@ -18,8 +18,9 @@ def reg(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-            redirect('user',user_name=form.username)
+            user = form.save(commit=False)
+            user.save()
+            return redirect('user',user_name=user.id)
     else:
         form = RegisterForm()
     return render(request,'Accuounts/register.html', {'form': form})
