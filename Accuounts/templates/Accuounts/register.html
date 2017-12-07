@@ -1,11 +1,10 @@
 {% extends 'Accuounts/layout.html' %}
-{% block body %}    
-<form>
-    full name <input type="text">
-    Username<input type="text">
-    email <input type="text">
-    password <input type="password" name="" id="">
-    confirm password <input type="password" name="" id="">
-    <input type="submit" value="Submit">
-</form>
+
+{% block body %}
+    <h1>Register new User</h1>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
 {% endblock %}
