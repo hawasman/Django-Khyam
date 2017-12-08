@@ -1,0 +1,25 @@
+{% extends 'Accuounts/layout.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6 col-lg-4 offset-lg-5 mx-auto my-auto">
+                    <h1>تسجيل الدخول</h1>
+                    <form method="POST" action="{% url 'login' %}" class="justify-content-center">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">اسم المستخدم</label>
+                            {{ form.username }}
+                            <small id="usernameHelp" class="form-text text-muted">هذا الحقل ضروري</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">كلمة المرور</label>
+                            {{ form.password }}
+                            <small id="passwordHelp" class="form-text text-muted">هذا الحقل ضروري</small>
+                        </div>
+                        <button type="submit" class="save btn btn-default">تسجيل الدخول</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

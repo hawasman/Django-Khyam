@@ -6,7 +6,7 @@ class RegisterForm(forms.ModelForm):
     username = forms.CharField(max_length=15)
     email = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
-    confirmpassword = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = users
@@ -16,3 +16,12 @@ class RegisterForm(forms.ModelForm):
             'email',
             'password',
             )
+
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = users
+        fields = ['username','password']
+        widgets = {
+            'username' : forms.TextInput(attrs={'class':'form-control','placeholder':'اسم المستخدم','id':'username','aria-describedby':'usernameHelp',}),
+            'password' : forms.TextInput(attrs={'class':'form-control','placeholder':'كملة المرور','id':'password','aria-describedby':'passwordHelp',}),
+        }
