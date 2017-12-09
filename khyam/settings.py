@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'khima.apps.KhimaConfig',
     'Accuounts.apps.AccuountsConfig',
     'posts.apps.PostsConfig',
     'django.contrib.admin',

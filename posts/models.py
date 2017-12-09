@@ -1,7 +1,10 @@
 from django.db import models
 
+
 # Create your models here.
 class post(models.Model):
+	user = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT)
+	khima = models.ForeignKey('khima.khyams',on_delete=models.PROTECT)
 	title = models.CharField(max_length=80)
 	body = models.TextField()
 	tag = models.CharField(max_length=15)

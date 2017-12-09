@@ -10,34 +10,26 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('Accuounts', '0001_initial'),
-        ('khima', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='comment',
+            name='khyams',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('body', models.TextField()),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
+                ('name', models.CharField(max_length=150)),
+                ('discription', models.TextField()),
+                ('files_id', models.IntegerField()),
+                ('slug_name', models.CharField(max_length=15)),
+                ('admin_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Accuounts.users')),
             ],
         ),
         migrations.CreateModel(
-            name='post',
+            name='members',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=80)),
-                ('body', models.TextField()),
-                ('tag', models.CharField(max_length=15)),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
-                ('rate', models.IntegerField()),
                 ('khima', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='khima.khyams')),
                 ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='Accuounts.users')),
             ],
-        ),
-        migrations.AddField(
-            model_name='comment',
-            name='post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='posts.post'),
         ),
     ]
