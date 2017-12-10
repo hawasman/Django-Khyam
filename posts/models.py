@@ -20,3 +20,9 @@ class comment(models.Model):
 	pub_date = models.DateTimeField('date published')
 	def __str__(self):
 		return self.body
+
+class masseges(models.Model):
+	sender = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT)
+	reciver = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT)
+	massege = models.TextField()
+	
