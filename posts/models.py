@@ -22,7 +22,7 @@ class comment(models.Model):
 		return self.body
 
 class masseges(models.Model):
-	sender = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT)
-	reciver = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT)
+	sender = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT,related_name='sender')
+	reciver = models.ForeignKey('Accuounts.users',on_delete=models.PROTECT,related_name='reciver')
 	massege = models.TextField()
 	

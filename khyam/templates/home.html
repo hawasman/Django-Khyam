@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block cssinclude %}
+    <link rel="stylesheet" href="{% static 'css/simpletextrotator.css' %}">
+    <script>
+            $(document).ready(function(){
+                $(".rotate").textrotator({
+                    animation: "fade",
+                    speed: 1000
+              });
+            });
+        </script>
+{% endblock %}
 {% block body %}    
     <div class="contianer">
         <div class="row">
-            <div class="col ml-auto">
+            <div class="col-12 ml-auto">
                     <h1 class="">مرحبا بك في خيم</h1>
+                    انشئ خيمتك عن <span class="rotate">كتابك,قصتك,موقعك,رياضتك</span> المفضل 
             </div>
         </div>
     </div>
+{% endblock %}
+{% block jsinclude %}
+    <script src="{% static 'js/jquery.simple-text-rotator.min.js' %}"></script>
 {% endblock %}
